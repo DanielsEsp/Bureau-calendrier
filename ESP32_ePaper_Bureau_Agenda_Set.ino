@@ -34,8 +34,8 @@
 
 // ------ Configuration WiFi ------
 #include <WiFi.h>
-const char* ssid = "Bbox-E295749E-2,4GHz";
-const char* password = "Mb&2427242711";
+const char* ssid = "SSID";
+const char* password = "PASS";
 int wifitime, esprestart;
 
 #include <HTTPClient.h>
@@ -95,8 +95,8 @@ const unsigned char* icone;
       int humiditeFormat;
 
 // ====== GOOGLE APPS SCRIPT URL ======
-const char* calendarURL = "https://script.google.com/macros/s/AKfycbwwdHMNKCHaNlssRT6avzuvnDkvGIW6mov7xTHnpJ9LbVod7FGq1SnTh9yVN6iDZUYY/exec";
-const char* calendarTomorrow = "https://script.google.com/macros/s/AKfycbwE_X4jio7ZyFCPwGrpSJhR_QsRyIu9u_UZtVKEdd_XzFS13_3Ddvg0ufDGJ8ObHwg/exec";
+const char* calendarURL = "votre url script day";
+const char* calendarTomorrow = "votre url script day + 1";
 int httpCode;
 
 // ====== TIMING ======
