@@ -68,7 +68,7 @@ const unsigned char* icone;
 
 //        Varialbles WEATHER DATAS LOAD
    String current = ("https://api.open-meteo.com/v1/forecast?latitude=48.477&longitude=7.6788&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,weather_code,surface_pressure,wind_speed_10m,wind_direction_10m,wind_gusts_10m&timezone=auto");    
-   String alerte = ("https://api.weatherapi.com/v1/alerts.json?key=1110af7d6e0c4d21a99104458242011&q=ICHTRATZHEIM");      
+   String alerte = ("https://api.weatherapi.com/v1/alerts.json?key=########=ICHTRATZHEIM");      
    String url;
    String current_date;
    String last_weather_update;
