@@ -1,0 +1,31 @@
+// GOOGLE SCRIPT pour Jour courant
+
+function doGet() {
+  var calendar = CalendarApp.getDefaultCalendar();
+
+  // Aujourd'hui à 00:00
+  var today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  // Récupère uniquement les événements d’aujourd’hui
+  var eventsToday = calendar.getEventsForDay(today);
+
+  var result = {
+    serverTime: new Date().toISOString(),
+    count: eventsToday.length,
+    events: []
+  };
+
+  eventsToday.forEach(function(e) {
+    result.events.push({
+      title: e.getTitle(),
+      start: e.getStartTime().toISOString(),
+      end: e.getEndTime().toISOString(),
+      allDay: e.isAllDayEvent()
+    });
+  });
+
+  return ContentService
+    .createTextOutput(JSON.stringify(result))
+    .setMimeType(ContentService.MimeType.JSON);
+}

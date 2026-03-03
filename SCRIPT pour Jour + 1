@@ -1,0 +1,29 @@
+//  GOOGLE SCRIPT pour Jour + 1
+
+unction doGet() { 
+  var calendar = CalendarApp.getDefaultCalendar();
+
+ // Demain à 00:00 
+ var tomorrow = new Date();
+ tomorrow.setDate(tomorrow.getDate() + 1);
+ tomorrow.setHours(0, 0, 0, 0);
+
+ // Récupère uniquement les événements de demain 
+ var eventsTomorrow = calendar.getEventsForDay(tomorrow);
+ var result = { 
+  serverTime: new Date().toISOString(), 
+  count: eventsTomorrow.length, 
+  events: [] 
+  };
+ eventsTomorrow.forEach(function(e) {
+  result.events.push({ 
+    title: e.getTitle(), 
+    start: e.getStartTime().toISOString(), 
+    end: e.getEndTime().toISOString(), 
+    allDay:e.isAllDayEvent() 
+    }); 
+  }); 
+  return ContentService 
+  .createTextOutput(JSON.stringify(result))
+  .setMimeType(ContentService.MimeType.JSON); 
+  }
